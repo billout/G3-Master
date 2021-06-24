@@ -1,0 +1,56 @@
+{
+  "name": "Jury",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "personnes",
+      "otherEntityRelationshipName": "jury",
+      "relationshipName": "president",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "personnes",
+      "otherEntityRelationshipName": "jury",
+      "relationshipName": "membre1",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "personnes",
+      "otherEntityRelationshipName": "jury",
+      "relationshipName": "membre2",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "personnes",
+      "otherEntityRelationshipName": "jury",
+      "relationshipName": "membre3",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "epreuves",
+      "otherEntityRelationshipName": "jury",
+      "relationshipName": "corrige",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "jury",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210624123013"
+}

@@ -1,0 +1,27 @@
+{
+  "g3MasterApp": {
+    "formations": {
+      "home": {
+        "title": "Formations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Formations",
+        "createOrEditLabel": "Create or edit a Formations",
+        "notFound": "No Formations found"
+      },
+      "created": "A new Formations is created with identifier {{ param }}",
+      "updated": "A Formations is updated with identifier {{ param }}",
+      "deleted": "A Formations is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Formations {{ id }}?"
+      },
+      "detail": {
+        "title": "Formations"
+      },
+      "id": "ID",
+      "libelle": "Libelle",
+      "code": "Code",
+      "concours": "Concours",
+      "niveaux": "Niveaux"
+    }
+  }
+}

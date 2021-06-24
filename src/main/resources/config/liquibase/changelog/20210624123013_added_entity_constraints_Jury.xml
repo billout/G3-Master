@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Jury.
+    -->
+    <changeSet id="20210624123013-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="president_id"
+                                 baseTableName="jury"
+                                 constraintName="fk_jury__president_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="personnes"/>
+
+        <addForeignKeyConstraint baseColumnNames="membre1_id"
+                                 baseTableName="jury"
+                                 constraintName="fk_jury__membre1_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="personnes"/>
+
+        <addForeignKeyConstraint baseColumnNames="membre2_id"
+                                 baseTableName="jury"
+                                 constraintName="fk_jury__membre2_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="personnes"/>
+
+        <addForeignKeyConstraint baseColumnNames="membre3_id"
+                                 baseTableName="jury"
+                                 constraintName="fk_jury__membre3_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="personnes"/>
+
+        <addForeignKeyConstraint baseColumnNames="corrige_id"
+                                 baseTableName="jury"
+                                 constraintName="fk_jury__corrige_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="epreuves"/>
+    </changeSet>
+</databaseChangeLog>

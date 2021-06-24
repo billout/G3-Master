@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-jury-heading" data-cy="JuryCreateUpdateHeading" jhiTranslate="g3MasterApp.jury.home.createOrEditLabel">
+        Create or edit a Jury
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="g3MasterApp.jury.libelle" for="field_libelle">Libelle</label>
+          <input type="text" class="form-control" name="libelle" id="field_libelle" data-cy="libelle" formControlName="libelle" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="g3MasterApp.jury.president" for="field_president">President</label>
+          <select class="form-control" id="field_president" data-cy="president" name="president" formControlName="president">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="personnesOption.id === editForm.get('president')!.value?.id ? editForm.get('president')!.value : personnesOption"
+              *ngFor="let personnesOption of presidentsCollection; trackBy: trackPersonnesById"
+            >
+              {{ personnesOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="g3MasterApp.jury.membre1" for="field_membre1">Membre 1</label>
+          <select class="form-control" id="field_membre1" data-cy="membre1" name="membre1" formControlName="membre1">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="personnesOption.id === editForm.get('membre1')!.value?.id ? editForm.get('membre1')!.value : personnesOption"
+              *ngFor="let personnesOption of membre1sCollection; trackBy: trackPersonnesById"
+            >
+              {{ personnesOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="g3MasterApp.jury.membre2" for="field_membre2">Membre 2</label>
+          <select class="form-control" id="field_membre2" data-cy="membre2" name="membre2" formControlName="membre2">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="personnesOption.id === editForm.get('membre2')!.value?.id ? editForm.get('membre2')!.value : personnesOption"
+              *ngFor="let personnesOption of membre2sCollection; trackBy: trackPersonnesById"
+            >
+              {{ personnesOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="g3MasterApp.jury.membre3" for="field_membre3">Membre 3</label>
+          <select class="form-control" id="field_membre3" data-cy="membre3" name="membre3" formControlName="membre3">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="personnesOption.id === editForm.get('membre3')!.value?.id ? editForm.get('membre3')!.value : personnesOption"
+              *ngFor="let personnesOption of membre3sCollection; trackBy: trackPersonnesById"
+            >
+              {{ personnesOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="g3MasterApp.jury.corrige" for="field_corrige">Corrige</label>
+          <select class="form-control" id="field_corrige" data-cy="corrige" name="corrige" formControlName="corrige">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="epreuvesOption.id === editForm.get('corrige')!.value?.id ? editForm.get('corrige')!.value : epreuvesOption"
+              *ngFor="let epreuvesOption of corrigesCollection; trackBy: trackEpreuvesById"
+            >
+              {{ epreuvesOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
