@@ -1,0 +1,58 @@
+{
+  "name": "Concours",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dtOuverture",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dtCloture",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "epreuves",
+      "otherEntityRelationshipName": "compose",
+      "relationshipName": "estCompose"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "formations",
+      "otherEntityRelationshipName": "concours",
+      "relationshipName": "estPour"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "voieAcces",
+      "otherEntityRelationshipName": "concours",
+      "relationshipName": "estPar"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "candidats",
+      "otherEntityRelationshipName": "concours",
+      "relationshipName": "candidats",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "concours",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210624122915"
+}

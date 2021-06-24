@@ -1,0 +1,27 @@
+{
+  "g3MasterApp": {
+    "formations": {
+      "home": {
+        "title": "Formations",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Formations",
+        "createOrEditLabel": "Créer ou éditer un Formations",
+        "notFound": "Aucun Formations trouvé"
+      },
+      "created": "Un nouveau Formations a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Formations avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Formations avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Formations {{ id }} ?"
+      },
+      "detail": {
+        "title": "Formations"
+      },
+      "id": "ID",
+      "libelle": "Libelle",
+      "code": "Code",
+      "concours": "Concours",
+      "niveaux": "Niveaux"
+    }
+  }
+}

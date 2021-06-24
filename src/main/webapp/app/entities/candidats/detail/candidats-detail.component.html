@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="candidats">
+      <h2 data-cy="candidatsDetailsHeading"><span jhiTranslate="g3MasterApp.candidats.detail.title">Candidats</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ candidats.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="g3MasterApp.candidats.identifiant">Identifiant</span></dt>
+        <dd>
+          <span>{{ candidats.identifiant }}</span>
+        </dd>
+        <dt><span jhiTranslate="g3MasterApp.candidats.etat">Etat</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'g3MasterApp.Statut.' + candidats.etat }}">{{ candidats.etat }}</span>
+        </dd>
+        <dt><span jhiTranslate="g3MasterApp.candidats.est">Est</span></dt>
+        <dd>
+          <div *ngIf="candidats.est">
+            <a [routerLink]="['/personnes', candidats.est?.id, 'view']">{{ candidats.est?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/candidats', candidats.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

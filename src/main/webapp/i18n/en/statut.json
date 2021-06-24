@@ -1,0 +1,14 @@
+{
+  "g3MasterApp": {
+    "Statut": {
+      "null": "",
+      "CANDIDATS": "CANDIDATS",
+      "ADMISSIBLE": "ADMISSIBLE",
+      "NON_ADMISSIBLE": "NON_ADMISSIBLE",
+      "ADMIS": "ADMIS",
+      "NON_ADMIS": "NON_ADMIS",
+      "EN_LISTE_ATTENTE": "EN_LISTE_ATTENTE",
+      "DEMISSIONAIRE": "DEMISSIONAIRE"
+    }
+  }
+}

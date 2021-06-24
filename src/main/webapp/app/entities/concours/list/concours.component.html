@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="ConcoursHeading">
+    <span jhiTranslate="g3MasterApp.concours.home.title">Concours</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="reset()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="g3MasterApp.concours.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-concours"
+        [routerLink]="['/concours/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="g3MasterApp.concours.home.createLabel"> Create a new Concours </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="concours?.length === 0">
+    <span jhiTranslate="g3MasterApp.concours.home.notFound">No concours found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="concours && concours.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="code"><span jhiTranslate="g3MasterApp.concours.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="libelle">
+            <span jhiTranslate="g3MasterApp.concours.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dtOuverture">
+            <span jhiTranslate="g3MasterApp.concours.dtOuverture">Dt Ouverture</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dtCloture">
+            <span jhiTranslate="g3MasterApp.concours.dtCloture">Dt Cloture</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+        <tr *ngFor="let concours of concours; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/concours', concours.id, 'view']">{{ concours.id }}</a>
+          </td>
+          <td>{{ concours.code }}</td>
+          <td>{{ concours.libelle }}</td>
+          <td>{{ concours.dtOuverture | formatMediumDate }}</td>
+          <td>{{ concours.dtCloture | formatMediumDate }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/concours', concours.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/concours', concours.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(concours)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

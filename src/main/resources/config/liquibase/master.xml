@@ -15,7 +15,21 @@
     <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210624122909_added_entity_Niveaux.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210624122910_added_entity_Formations.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210624122911_added_entity_VoieAcces.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210624122912_added_entity_Personnes.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210624122913_added_entity_Candidats.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210624122914_added_entity_Epreuves.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210624122915_added_entity_Concours.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210624122916_added_entity_Jury.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20210624122910_added_entity_constraints_Formations.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210624122911_added_entity_constraints_VoieAcces.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210624122913_added_entity_constraints_Candidats.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210624122914_added_entity_constraints_Epreuves.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210624122915_added_entity_constraints_Concours.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210624122916_added_entity_constraints_Jury.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

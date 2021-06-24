@@ -1,0 +1,39 @@
+{
+  "name": "Candidats",
+  "fields": [
+    {
+      "fieldName": "identifiant",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "Statut",
+      "fieldValues": "CANDIDATS,ADMISSIBLE,NON_ADMISSIBLE,ADMIS,NON_ADMIS,EN_LISTE_ATTENTE,DEMISSIONAIRE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "personnes",
+      "otherEntityRelationshipName": "aDossier",
+      "relationshipName": "est"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "concours",
+      "otherEntityRelationshipName": "candidats",
+      "relationshipName": "concours",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "candidats",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210624122913"
+}

@@ -1,0 +1,86 @@
+<div>
+  <h2 id="page-heading" data-cy="VoieAccesHeading">
+    <span jhiTranslate="g3MasterApp.voieAcces.home.title">Voie Acces</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="g3MasterApp.voieAcces.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-voie-acces"
+        [routerLink]="['/voie-acces/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="g3MasterApp.voieAcces.home.createLabel"> Create a new Voie Acces </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="voieAcces?.length === 0">
+    <span jhiTranslate="g3MasterApp.voieAcces.home.notFound">No voieAcces found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="voieAcces && voieAcces.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="g3MasterApp.voieAcces.libelle">Libelle</span></th>
+          <th scope="col"><span jhiTranslate="g3MasterApp.voieAcces.code">Code</span></th>
+          <th scope="col"><span jhiTranslate="g3MasterApp.voieAcces.concours">Concours</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let voieAcces of voieAcces; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/voie-acces', voieAcces.id, 'view']">{{ voieAcces.id }}</a>
+          </td>
+          <td>{{ voieAcces.libelle }}</td>
+          <td>{{ voieAcces.code }}</td>
+          <td>
+            <div *ngIf="voieAcces.concours">
+              <a [routerLink]="['/concours', voieAcces.concours?.id, 'view']">{{ voieAcces.concours?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/voie-acces', voieAcces.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/voie-acces', voieAcces.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(voieAcces)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
