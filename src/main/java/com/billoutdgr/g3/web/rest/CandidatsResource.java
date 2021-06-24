@@ -2,7 +2,7 @@ package com.billoutdgr.g3.web.rest;
 
 import com.billoutdgr.g3.domain.Candidats;
 import com.billoutdgr.g3.repository.CandidatsRepository;
-import com.billoutdgr.g3.service.CandidatsService;
+
 import com.billoutdgr.g3.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.ResponseUtil;
@@ -22,6 +23,7 @@ import tech.jhipster.web.util.ResponseUtil;
  */
 @RestController
 @RequestMapping("/api")
+
 public class CandidatsResource {
 
     private final Logger log = LoggerFactory.getLogger(CandidatsResource.class);
@@ -31,12 +33,7 @@ public class CandidatsResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final CandidatsService candidatsService;
 
-    private final CandidatsRepository candidatsRepository;
-
-    public CandidatsResource(CandidatsService candidatsService, CandidatsRepository candidatsRepository) {
-        this.candidatsService = candidatsService;
         this.candidatsRepository = candidatsRepository;
     }
 
@@ -53,7 +50,7 @@ public class CandidatsResource {
         if (candidats.getId() != null) {
             throw new BadRequestAlertException("A new candidats cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Candidats result = candidatsService.save(candidats);
+
         return ResponseEntity
             .created(new URI("/api/candidats/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
@@ -87,7 +84,7 @@ public class CandidatsResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        Candidats result = candidatsService.save(candidats);
+
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, candidats.getId().toString()))
@@ -122,7 +119,7 @@ public class CandidatsResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        Optional<Candidats> result = candidatsService.partialUpdate(candidats);
+
 
         return ResponseUtil.wrapOrNotFound(
             result,
@@ -138,7 +135,7 @@ public class CandidatsResource {
     @GetMapping("/candidats")
     public List<Candidats> getAllCandidats() {
         log.debug("REST request to get all Candidats");
-        return candidatsService.findAll();
+
     }
 
     /**
@@ -150,7 +147,7 @@ public class CandidatsResource {
     @GetMapping("/candidats/{id}")
     public ResponseEntity<Candidats> getCandidats(@PathVariable Long id) {
         log.debug("REST request to get Candidats : {}", id);
-        Optional<Candidats> candidats = candidatsService.findOne(id);
+
         return ResponseUtil.wrapOrNotFound(candidats);
     }
 
@@ -163,7 +160,7 @@ public class CandidatsResource {
     @DeleteMapping("/candidats/{id}")
     public ResponseEntity<Void> deleteCandidats(@PathVariable Long id) {
         log.debug("REST request to delete Candidats : {}", id);
-        candidatsService.delete(id);
+
         return ResponseEntity
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

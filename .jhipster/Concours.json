@@ -48,11 +48,5 @@
   "entityTableName": "concours",
   "dto": "no",
   "pagination": "no",
-  "service": "serviceImpl",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20210624122652"
+
 }
