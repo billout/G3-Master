@@ -1,0 +1,27 @@
+{
+  "g3MasterApp": {
+    "candidats": {
+      "home": {
+        "title": "Candidats",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Candidats",
+        "createOrEditLabel": "Create or edit a Candidats",
+        "notFound": "No Candidats found"
+      },
+      "created": "A new Candidats is created with identifier {{ param }}",
+      "updated": "A Candidats is updated with identifier {{ param }}",
+      "deleted": "A Candidats is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Candidats {{ id }}?"
+      },
+      "detail": {
+        "title": "Candidats"
+      },
+      "id": "ID",
+      "identifiant": "Identifiant",
+      "etat": "Etat",
+      "est": "Est",
+      "concours": "Concours"
+    }
+  }
+}

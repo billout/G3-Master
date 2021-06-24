@@ -80,8 +80,5 @@ relationship ManyToMany {
 
 
 // Set pagination options
-paginate Epreuves with infinite-scroll
-paginate Candiats with infinite-scroll
-
 
 
