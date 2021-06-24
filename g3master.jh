@@ -1,0 +1,92 @@
+enum Statut {
+  CANDIDATS 
+  ADMISSIBLE 
+  NON_ADMISSIBLE
+  ADMIS 
+  NON_ADMIS
+  EN_LISTE_ATTENTE
+  DEMISSIONAIRE
+}
+
+enum TypeEpreuve {
+   ORAL
+   ECRIT
+}
+
+entity Niveaux { 
+  Libelle String
+  Code String 
+}
+
+entity Formations {
+  Libelle String
+  Code String 
+}
+
+entity VoieAcces { 
+  Libelle String
+  Code String 
+}
+
+entity Personnes{
+   Nom String
+   Prenom String
+   Telephone String
+   Email String
+   Nationnalite String   
+}
+
+entity Candidats {
+  Identifiant String
+  Etat Statut
+}
+
+entity Epreuves { 
+  Code String
+  Libelle String  
+  Type TypeEpreuve  
+}
+
+entity Concours {
+   Code String
+   Libelle String
+   DtOuverture LocalDate
+   DtCloture LocalDate
+}
+
+entity Jury {
+	Libelle String
+}
+
+relationship OneToMany { 
+  Personnes{ADossier} to Candidats{Est}
+  Concours{EstCompose} to Epreuves{Compose}
+  Concours{EstPour} to Formations
+  Concours{EstPar} to VoieAcces  
+  Niveaux to Formations 
+}
+
+relationship OneToOne { 
+	Jury{President} to Personnes
+    Jury{Membre1} to Personnes
+    Jury{Membre2} to Personnes
+    Jury{Membre3} to Personnes
+    Jury{Corrige} to Epreuves
+}
+
+relationship ManyToMany { 
+  Concours to Candidats
+}
+
+
+// Set pagination options
+paginate Epreuves with infinite-scroll
+paginate Candidats with infinite-scroll
+paginate Concours with infinite-scroll
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceImpl 
+
