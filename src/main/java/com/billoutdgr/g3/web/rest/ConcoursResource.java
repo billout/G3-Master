@@ -2,6 +2,7 @@ package com.billoutdgr.g3.web.rest;
 
 import com.billoutdgr.g3.domain.Concours;
 import com.billoutdgr.g3.repository.ConcoursRepository;
+
 import com.billoutdgr.g3.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -12,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
+
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.ResponseUtil;
@@ -22,7 +23,7 @@ import tech.jhipster.web.util.ResponseUtil;
  */
 @RestController
 @RequestMapping("/api")
-@Transactional
+
 public class ConcoursResource {
 
     private final Logger log = LoggerFactory.getLogger(ConcoursResource.class);
@@ -32,9 +33,7 @@ public class ConcoursResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final ConcoursRepository concoursRepository;
 
-    public ConcoursResource(ConcoursRepository concoursRepository) {
         this.concoursRepository = concoursRepository;
     }
 
@@ -51,7 +50,7 @@ public class ConcoursResource {
         if (concours.getId() != null) {
             throw new BadRequestAlertException("A new concours cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Concours result = concoursRepository.save(concours);
+
         return ResponseEntity
             .created(new URI("/api/concours/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
@@ -85,7 +84,7 @@ public class ConcoursResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        Concours result = concoursRepository.save(concours);
+
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, concours.getId().toString()))
@@ -120,27 +119,6 @@ public class ConcoursResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        Optional<Concours> result = concoursRepository
-            .findById(concours.getId())
-            .map(
-                existingConcours -> {
-                    if (concours.getCode() != null) {
-                        existingConcours.setCode(concours.getCode());
-                    }
-                    if (concours.getLibelle() != null) {
-                        existingConcours.setLibelle(concours.getLibelle());
-                    }
-                    if (concours.getDtOuverture() != null) {
-                        existingConcours.setDtOuverture(concours.getDtOuverture());
-                    }
-                    if (concours.getDtCloture() != null) {
-                        existingConcours.setDtCloture(concours.getDtCloture());
-                    }
-
-                    return existingConcours;
-                }
-            )
-            .map(concoursRepository::save);
 
         return ResponseUtil.wrapOrNotFound(
             result,
@@ -157,7 +135,7 @@ public class ConcoursResource {
     @GetMapping("/concours")
     public List<Concours> getAllConcours(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get all Concours");
-        return concoursRepository.findAllWithEagerRelationships();
+
     }
 
     /**
@@ -169,7 +147,7 @@ public class ConcoursResource {
     @GetMapping("/concours/{id}")
     public ResponseEntity<Concours> getConcours(@PathVariable Long id) {
         log.debug("REST request to get Concours : {}", id);
-        Optional<Concours> concours = concoursRepository.findOneWithEagerRelationships(id);
+
         return ResponseUtil.wrapOrNotFound(concours);
     }
 
@@ -182,7 +160,7 @@ public class ConcoursResource {
     @DeleteMapping("/concours/{id}")
     public ResponseEntity<Void> deleteConcours(@PathVariable Long id) {
         log.debug("REST request to delete Concours : {}", id);
-        concoursRepository.deleteById(id);
+
         return ResponseEntity
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

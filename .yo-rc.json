@@ -44,7 +44,7 @@
     "clientThemeVariant": "",
     "reactive": false,
     "entities": ["Niveaux", "Formations", "VoieAcces", "Personnes", "Candidats", "Epreuves", "Concours", "Jury"],
-    "lastLiquibaseTimestamp": 1624537565000
+
   },
   "git-provider": "GitHub",
   "git-company": "billout",
