@@ -1,0 +1,37 @@
+{
+  "name": "Formations",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "concours",
+      "otherEntityRelationshipName": "estPour",
+      "relationshipName": "concours"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "niveaux",
+      "otherEntityRelationshipName": "formations",
+      "relationshipName": "niveaux"
+    }
+  ],
+  "entityTableName": "formations",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210624122747"
+}

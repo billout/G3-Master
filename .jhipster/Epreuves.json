@@ -1,0 +1,36 @@
+{
+  "name": "Epreuves",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TypeEpreuve",
+      "fieldValues": "ORAL,ECRIT"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "concours",
+      "otherEntityRelationshipName": "estCompose",
+      "relationshipName": "compose"
+    }
+  ],
+  "entityTableName": "epreuves",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210624122751"
+}

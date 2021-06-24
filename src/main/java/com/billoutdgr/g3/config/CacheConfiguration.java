@@ -51,6 +51,21 @@ public class CacheConfiguration {
             createCache(cm, com.billoutdgr.g3.domain.User.class.getName());
             createCache(cm, com.billoutdgr.g3.domain.Authority.class.getName());
             createCache(cm, com.billoutdgr.g3.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.billoutdgr.g3.domain.Niveaux.class.getName());
+            createCache(cm, com.billoutdgr.g3.domain.Niveaux.class.getName() + ".formations");
+            createCache(cm, com.billoutdgr.g3.domain.Formations.class.getName());
+            createCache(cm, com.billoutdgr.g3.domain.VoieAcces.class.getName());
+            createCache(cm, com.billoutdgr.g3.domain.Personnes.class.getName());
+            createCache(cm, com.billoutdgr.g3.domain.Personnes.class.getName() + ".aDossiers");
+            createCache(cm, com.billoutdgr.g3.domain.Candidats.class.getName());
+            createCache(cm, com.billoutdgr.g3.domain.Candidats.class.getName() + ".concours");
+            createCache(cm, com.billoutdgr.g3.domain.Epreuves.class.getName());
+            createCache(cm, com.billoutdgr.g3.domain.Concours.class.getName());
+            createCache(cm, com.billoutdgr.g3.domain.Concours.class.getName() + ".estComposes");
+            createCache(cm, com.billoutdgr.g3.domain.Concours.class.getName() + ".estPours");
+            createCache(cm, com.billoutdgr.g3.domain.Concours.class.getName() + ".estPars");
+            createCache(cm, com.billoutdgr.g3.domain.Concours.class.getName() + ".candidats");
+            createCache(cm, com.billoutdgr.g3.domain.Jury.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

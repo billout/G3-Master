@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="jury">
+      <h2 data-cy="juryDetailsHeading"><span jhiTranslate="g3MasterApp.jury.detail.title">Jury</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ jury.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="g3MasterApp.jury.libelle">Libelle</span></dt>
+        <dd>
+          <span>{{ jury.libelle }}</span>
+        </dd>
+        <dt><span jhiTranslate="g3MasterApp.jury.president">President</span></dt>
+        <dd>
+          <div *ngIf="jury.president">
+            <a [routerLink]="['/personnes', jury.president?.id, 'view']">{{ jury.president?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="g3MasterApp.jury.membre1">Membre 1</span></dt>
+        <dd>
+          <div *ngIf="jury.membre1">
+            <a [routerLink]="['/personnes', jury.membre1?.id, 'view']">{{ jury.membre1?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="g3MasterApp.jury.membre2">Membre 2</span></dt>
+        <dd>
+          <div *ngIf="jury.membre2">
+            <a [routerLink]="['/personnes', jury.membre2?.id, 'view']">{{ jury.membre2?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="g3MasterApp.jury.membre3">Membre 3</span></dt>
+        <dd>
+          <div *ngIf="jury.membre3">
+            <a [routerLink]="['/personnes', jury.membre3?.id, 'view']">{{ jury.membre3?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="g3MasterApp.jury.corrige">Corrige</span></dt>
+        <dd>
+          <div *ngIf="jury.corrige">
+            <a [routerLink]="['/epreuves', jury.corrige?.id, 'view']">{{ jury.corrige?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/jury', jury.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

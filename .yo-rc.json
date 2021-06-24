@@ -42,7 +42,9 @@
     "jwtSecretKey": "NWJkOTZjZDFhZGUzZWYyZWM3NDE0MjY4M2ViNGM0ODJmNWNhZjdjYjYyOGJiYTE3ZGYwZjA0YTE2NzQyMjNkYmY2ZWMyZjU0YzVjNjg0N2FiNWZiZDlhMWIyYTJkMTQ3YmQwOTU0NTc2YjJlMTNhYWM3YTEwNDQzNmE5YWViZDU=",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "reactive": false
+    "reactive": false,
+    "entities": ["Niveaux", "Formations", "VoieAcces", "Personnes", "Candidats", "Epreuves", "Concours", "Jury"],
+    "lastLiquibaseTimestamp": 1624537673000
   },
   "git-provider": "GitHub",
   "git-company": "billout",

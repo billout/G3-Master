@@ -1,0 +1,31 @@
+{
+  "g3MasterApp": {
+    "concours": {
+      "home": {
+        "title": "Concours",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Concours",
+        "createOrEditLabel": "Créer ou éditer un Concours",
+        "notFound": "Aucun Concours trouvé"
+      },
+      "created": "Un nouveau Concours a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Concours avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Concours avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Concours {{ id }} ?"
+      },
+      "detail": {
+        "title": "Concours"
+      },
+      "id": "ID",
+      "code": "Code",
+      "libelle": "Libelle",
+      "dtOuverture": "Dt Ouverture",
+      "dtCloture": "Dt Cloture",
+      "estCompose": "Est Compose",
+      "estPour": "Est Pour",
+      "estPar": "Est Par",
+      "candidats": "Candidats"
+    }
+  }
+}

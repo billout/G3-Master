@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-concours-heading" data-cy="ConcoursCreateUpdateHeading" jhiTranslate="g3MasterApp.concours.home.createOrEditLabel">
+        Create or edit a Concours
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="g3MasterApp.concours.code" for="field_code">Code</label>
+          <input type="text" class="form-control" name="code" id="field_code" data-cy="code" formControlName="code" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="g3MasterApp.concours.libelle" for="field_libelle">Libelle</label>
+          <input type="text" class="form-control" name="libelle" id="field_libelle" data-cy="libelle" formControlName="libelle" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="g3MasterApp.concours.dtOuverture" for="field_dtOuverture">Dt Ouverture</label>
+          <div class="input-group">
+            <input
+              id="field_dtOuverture"
+              data-cy="dtOuverture"
+              type="text"
+              class="form-control"
+              name="dtOuverture"
+              ngbDatepicker
+              #dtOuvertureDp="ngbDatepicker"
+              formControlName="dtOuverture"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dtOuvertureDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="g3MasterApp.concours.dtCloture" for="field_dtCloture">Dt Cloture</label>
+          <div class="input-group">
+            <input
+              id="field_dtCloture"
+              data-cy="dtCloture"
+              type="text"
+              class="form-control"
+              name="dtCloture"
+              ngbDatepicker
+              #dtClotureDp="ngbDatepicker"
+              formControlName="dtCloture"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dtClotureDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label jhiTranslate="g3MasterApp.concours.candidats" for="field_candidats">Candidats</label>
+          <select class="form-control" id="field_candidats" data-cy="candidats" multiple name="candidats" formControlName="candidats">
+            <option
+              [ngValue]="getSelectedCandidats(candidatsOption, editForm.get('candidats')!.value)"
+              *ngFor="let candidatsOption of candidatsSharedCollection; trackBy: trackCandidatsById"
+            >
+              {{ candidatsOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "g3MasterApp": {
+    "epreuves": {
+      "home": {
+        "title": "Epreuves",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Epreuves",
+        "createOrEditLabel": "Create or edit a Epreuves",
+        "notFound": "No Epreuves found"
+      },
+      "created": "A new Epreuves is created with identifier {{ param }}",
+      "updated": "A Epreuves is updated with identifier {{ param }}",
+      "deleted": "A Epreuves is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Epreuves {{ id }}?"
+      },
+      "detail": {
+        "title": "Epreuves"
+      },
+      "id": "ID",
+      "code": "Code",
+      "libelle": "Libelle",
+      "type": "Type",
+      "compose": "Compose"
+    }
+  }
+}
