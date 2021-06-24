@@ -1,0 +1,26 @@
+{
+  "g3MasterApp": {
+    "niveaux": {
+      "home": {
+        "title": "Niveaux",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Niveaux",
+        "createOrEditLabel": "Créer ou éditer un Niveaux",
+        "notFound": "Aucun Niveaux trouvé"
+      },
+      "created": "Un nouveau Niveaux a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Niveaux avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Niveaux avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Niveaux {{ id }} ?"
+      },
+      "detail": {
+        "title": "Niveaux"
+      },
+      "id": "ID",
+      "libelle": "Libelle",
+      "code": "Code",
+      "formations": "Formations"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Candidats.
+    -->
+    <changeSet id="20210624122602-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="est_id"
+                                 baseTableName="candidats"
+                                 constraintName="fk_candidats__est_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="personnes"/>
+    </changeSet>
+</databaseChangeLog>
