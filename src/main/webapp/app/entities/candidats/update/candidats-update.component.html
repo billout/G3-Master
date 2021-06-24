@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-candidats-heading" data-cy="CandidatsCreateUpdateHeading" jhiTranslate="g3MasterApp.candidats.home.createOrEditLabel">
+        Create or edit a Candidats
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="g3MasterApp.candidats.identifiant" for="field_identifiant">Identifiant</label>
+          <input
+            type="text"
+            class="form-control"
+            name="identifiant"
+            id="field_identifiant"
+            data-cy="identifiant"
+            formControlName="identifiant"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="g3MasterApp.candidats.etat" for="field_etat">Etat</label>
+          <select class="form-control" name="etat" formControlName="etat" id="field_etat" data-cy="etat">
+            <option [ngValue]="null">{{ 'g3MasterApp.Statut.null' | translate }}</option>
+            <option value="CANDIDATS">{{ 'g3MasterApp.Statut.CANDIDATS' | translate }}</option>
+            <option value="ADMISSIBLE">{{ 'g3MasterApp.Statut.ADMISSIBLE' | translate }}</option>
+            <option value="NON_ADMISSIBLE">{{ 'g3MasterApp.Statut.NON_ADMISSIBLE' | translate }}</option>
+            <option value="ADMIS">{{ 'g3MasterApp.Statut.ADMIS' | translate }}</option>
+            <option value="NON_ADMIS">{{ 'g3MasterApp.Statut.NON_ADMIS' | translate }}</option>
+            <option value="EN_LISTE_ATTENTE">{{ 'g3MasterApp.Statut.EN_LISTE_ATTENTE' | translate }}</option>
+            <option value="DEMISSIONAIRE">{{ 'g3MasterApp.Statut.DEMISSIONAIRE' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="g3MasterApp.candidats.est" for="field_est">Est</label>
+          <select class="form-control" id="field_est" data-cy="est" name="est" formControlName="est">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="personnesOption.id === editForm.get('est')!.value?.id ? editForm.get('est')!.value : personnesOption"
+              *ngFor="let personnesOption of personnesSharedCollection; trackBy: trackPersonnesById"
+            >
+              {{ personnesOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

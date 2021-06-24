@@ -1,0 +1,27 @@
+{
+  "g3MasterApp": {
+    "epreuves": {
+      "home": {
+        "title": "Epreuves",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Epreuves",
+        "createOrEditLabel": "Créer ou éditer un Epreuves",
+        "notFound": "Aucun Epreuves trouvé"
+      },
+      "created": "Un nouveau Epreuves a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Epreuves avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Epreuves avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Epreuves {{ id }} ?"
+      },
+      "detail": {
+        "title": "Epreuves"
+      },
+      "id": "ID",
+      "code": "Code",
+      "libelle": "Libelle",
+      "type": "Type",
+      "compose": "Compose"
+    }
+  }
+}

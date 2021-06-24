@@ -1,0 +1,43 @@
+{
+  "name": "Personnes",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telephone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nationnalite",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "candidats",
+      "otherEntityRelationshipName": "est",
+      "relationshipName": "aDossier"
+    }
+  ],
+  "entityTableName": "personnes",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210624122649"
+}

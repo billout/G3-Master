@@ -1,0 +1,26 @@
+{
+  "g3MasterApp": {
+    "voieAcces": {
+      "home": {
+        "title": "VoieAcces",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Voie Acces",
+        "createOrEditLabel": "Créer ou éditer un Voie Acces",
+        "notFound": "Aucun Voie Acces trouvé"
+      },
+      "created": "Un nouveau Voie Acces a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Voie Acces avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Voie Acces avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Voie Acces {{ id }} ?"
+      },
+      "detail": {
+        "title": "Voie Acces"
+      },
+      "id": "ID",
+      "libelle": "Libelle",
+      "code": "Code",
+      "concours": "Concours"
+    }
+  }
+}
