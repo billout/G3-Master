@@ -85,7 +85,3 @@ paginate Candiats with infinite-scroll
 paginate Concours with infinite-scroll
 
 // Use Data Transfert Objects (DTO)
-dto * with mapstruct
-
-// Set service options to all except few
-service * with serviceImpl
